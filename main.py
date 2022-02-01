@@ -12,7 +12,7 @@ class Ricecooker:
   # menyalakan tv
   def menyalakanRicecooker(self):
     self.Ricecooker_menyala = True
-    print("Ricecooker menayala")
+    print("Ricecooker menyala")
 
   # metode / funsgi menambah chanel dan menghapus chanel
   def tambahMerk(self, nama_merk):
@@ -20,7 +20,7 @@ class Ricecooker:
       self.merk.append(nama_merk)      
       print("merk ditambahkan")
     else:
-      print("merk belum menayala")
+      print("merk belum menyala")
 
   # metode / funsgi menambah chanel dan menghapus chanel
   def hapusMerk(self, nama_merk):
@@ -28,7 +28,7 @@ class Ricecooker:
       self.merk.remove(nama_merk)      
       print("merk dihapus")
     else:
-      print("Ricecooker belum menayala")
+      print("Ricecooker belum menyala")
 
 class ModernRicecooker(Ricecooker):
   # app
@@ -40,7 +40,7 @@ class ModernRicecooker(Ricecooker):
       self.fitur.append(nama_aplikasi)      
       print("fitur ditambahkan")
     else:
-      print("Ricecooker belum menayala")
+      print("Ricecooker belum menyala")
 
   # metode / funsgi menghapus apliakasi
   def hapusApikasi(self, nama_fitur):
@@ -48,7 +48,7 @@ class ModernRicecooker(Ricecooker):
       self.fitur.remove(nama_fitur)      
       print("fitur dihapus")
     else:
-      print("Ricecooker belum menayala")
+      print("Ricecooker belum menyala")
 
 # mebuat object dari clas tv
 Ricecooker_kamar = Ricecooker('YoungMa', '2Liter')
@@ -57,13 +57,15 @@ Ricecooker_tamu = ModernRicecooker('Toshiba', '3Liter')
 
 while True:
   print("1) nyalakan Ricecooker")
-  print("2) tambakan merk Ricecooker")
+  print("2) tambahkan merk Ricecooker")
   print("3) Hapus merk Ricecooker")
   print("4) Tambah temperature")
   print("5) keluar dari program")
   pilihan = int(input("silahkan masukan pilihan anda "))
+
   if(pilihan == 1):
     Ricecooker_kamar.menyalakanRicecooker()
+    print("____________________________________________")
   elif(pilihan == 2):
     print('merk sekarang:')
     print(Ricecooker_kamar.merk)
@@ -71,6 +73,7 @@ while True:
     Ricecooker_kamar.tambahMerk(merk)
     print('merk sekarang:')
     print(Ricecooker_kamar.merk)
+    print("____________________________________________")
   elif(pilihan == 3):
     print('merk sekarang:')
     print(Ricecooker_kamar.merk)
@@ -78,6 +81,7 @@ while True:
     Ricecooker_kamar.hapusMerk(merk)
     print('merk sekarang:')
     print(Ricecooker_kamar.merk)
+    print("____________________________________________")
   elif(pilihan == 4):
     try:
       temperature = int(input('Silahkan masukan temperature : '))
@@ -85,9 +89,11 @@ while True:
       newtemperature = temperature + settemperature
     except:
       print('temperature error')
-      print('Temperature berhasil diubah, temperature sekarang adalah : ', newtemperature)
+    print('Temperature berhasil diubah, temperature sekarang adalah : ', newtemperature)
+      
   elif(pilihan == 5):
     print('anda keluar program')
+    print("____________________________________________")
     break
   else:
     print('pilihan tidak ditemukan')
