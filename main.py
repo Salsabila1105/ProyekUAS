@@ -1,52 +1,84 @@
-#RICECOOKER
-#ubah objek
-class TV:
-# atribut
-  Channel = ['rcti', 'tvri', 'Global tv']
-  #ChannelTambahan = ['Indosiar', 'MNCTV', 'SCTV']
-  #Channel.extend(ChannelTambahan)
+class Ricecooker:
+  # attribute / class varible
+  merk = ['YoungMa', 'Cosmos', 'Philip']
+  Ricecooker_menyala = False
 
-  #methode constructor / __init__
-  def __init__ (self, brand, size,):
-    #assignment / memasukan ke variabel class
-    self.brand = brand 
+  # method contructor / __init_ 
+  def __init__ (self, mode , size):
+    # asignmet / memasukan ke varible class
+    self.mode = mode
     self.size = size
 
-#Menyalakan tv
-  def menyalakanTV(self):
-    self.tvmenyala = True
-    print("tv menyala")
+  # menyalakan tv
+  def menyalakanRicecooker(self):
+    self.Ricecooker_menyala = True
+    print("Ricecooker menayala")
 
-#metode / fungsi menambah channel dan menghapus channel
-  def tambahChannel (self, chanel):
-    if (self.tvmenyala):
-      self.Channel.append(chanel)
-      print('channel ditambahkan')
+  # metode / funsgi menambah chanel dan menghapus chanel
+  def tambahMerk(self, nama_merk):
+    if(self.Ricecooker_menyala):
+      self.merk.append(nama_merk)      
+      print("merk ditambahkan")
     else:
-      print('tv belum menyala')
+      print("merk belum menayala")
 
-      
-  def hapusChannel (self, chanel):
-     if (self.tvmenyala):
-      self.Channel.remove(chanel)
-      print('Channel dihapus')
+  # metode / funsgi menambah chanel dan menghapus chanel
+  def hapusMerk(self, nama_merk):
+    if(self.Ricecooker_menyala):
+      self.merk.remove(nama_merk)      
+      print("merk dihapus")
     else:
-      print('tv belum menyala')
-#membuat objek dari class tv
+      print("Ricecooker belum menayala")
 
-tv_kamar = TV ('TCL', '32inc')
-#addChannel
-##print(tv_kamar.Channel)
+class ModernRicecooker(Ricecooker):
+  # app
+  fitur = ['cook','warm']
 
-#menghapus channel 
-#tv_kamar.Channel.remove("tvn")
-tv_kamar.menyalakanTV()
-tv_kamar.tambahChannel('TVN')
-print(tv_kamar.Channel)
+  # metode / funsgi menambah apliakasi
+  def tambahFitur(self, nama_aplikasi):
+    if(self.Ricecooker_menyala):
+      self.fitur.append(nama_aplikasi)      
+      print("fitur ditambahkan")
+    else:
+      print("Ricecooker belum menayala")
 
-tv_kamar.hapusChannel('Global tv')
-print(tv_kamar.Channel)
-#masukan fungsi input di console
-#tambah child class
+  # metode / funsgi menghapus apliakasi
+  def hapusApikasi(self, nama_fitur):
+    if(self.Ricecooker_menyala):
+      self.fitur.remove(nama_fitur)      
+      print("fitur dihapus")
+    else:
+      print("Ricecooker belum menayala")
+
+# mebuat object dari clas tv
+Ricecooker_kamar = Ricecooker('YoungMa', '2Liter')
+Ricecooker_tamu = ModernRicecooker('Toshiba', '3Liter')
 
 
+while True:
+  print("1) nyalakan Ricecooker")
+  print("2) tambakan merk Ricecooker")
+  print("3) Hapus merk Ricecooker")
+  print("4) keluar dari program")
+  pilihan = int(input("silahkan masukan pilihan anda "))
+  if(pilihan == 1):
+    Ricecooker_kamar.menyalakanRicecooker()
+  elif(pilihan == 2):
+    print('merk sekarang:')
+    print(Ricecooker_kamar.merk)
+    merk = input("silahkan masukan merk: ")
+    Ricecooker_kamar.tambahMerk(merk)
+    print('merk sekarang:')
+    print(Ricecooker_kamar.merk)
+  elif(pilihan == 3):
+    print('merk sekarang:')
+    print(Ricecooker_kamar.merk)
+    merk = input("silahkan masukan merk: ")
+    Ricecooker_kamar.hapusMerk(merk)
+    print('merk sekarang:')
+    print(Ricecooker_kamar.merk)
+  elif(pilihan == 4):
+    print('anda keluar program')
+    break
+  else:
+    print('pilihan tidak ditemukan')
