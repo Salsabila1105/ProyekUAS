@@ -90,6 +90,7 @@ while True:
     except:
       print('temperature error')
     print('Temperature berhasil diubah, temperature sekarang adalah : ', newtemperature)
+    print("____________________________________________") 
       
   elif(pilihan == 5):
     print('anda keluar program')
